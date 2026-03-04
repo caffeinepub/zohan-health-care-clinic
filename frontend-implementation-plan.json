@@ -1,0 +1,253 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Zohan Health Care Clinic responsive 4-page website (Home/About/Services/Contact) with contact form + static assets",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Apply a consistent clean Blue/White medical theme, sans-serif typography, and responsive layout across all pages.",
+      "acceptanceCriteria": [
+        "All pages share a consistent Blue/White theme, spacing, and typography.",
+        "Layout is responsive and usable on mobile, tablet, and desktop screen sizes.",
+        "No blue/purple gradient theme is introduced; keep the look medical and clean."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styles (Tailwind base/components/utilities plus theme tokens) to enforce Blue/White medical look, clean sans-serif typography, and consistent spacing. Avoid gradients. (Verify existing Tailwind setup expectations before implementing.)"
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Create a shared responsive layout wrapper that applies consistent page container widths, spacing, and typography across all pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add client-side routing for Home/About/Services/Contact with a shared header nav (active state) and footer containing clinic name and key contact details.",
+      "acceptanceCriteria": [
+        "Users can navigate to Home, About, Services, and Contact via a top navigation on all pages.",
+        "Footer is present on all pages and includes clinic name plus at least phone and location text.",
+        "Navigation works without full page reloads."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Implement React Router-based routing for Home, About, Services, and Contact pages and wrap routes with the shared SiteLayout so header/footer appear on all pages."
+        },
+        {
+          "path": "frontend/src/components/layout/HeaderNav.tsx",
+          "operation": "create",
+          "description": "Create a responsive header navigation with active state styling for Home/About/Services/Contact links using clinic config values where needed."
+        },
+        {
+          "path": "frontend/src/components/layout/Footer.tsx",
+          "operation": "create",
+          "description": "Create a footer shown on all pages that displays clinic name and primary contact details (at least phone and canonical location text) sourced from the centralized config module."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build the Home page with hero image, provided intro text (verbatim), services overview, and CTAs for booking and calling.",
+      "acceptanceCriteria": [
+        "Home page hero displays the generated hero image and the English intro paragraph exactly as provided (verbatim).",
+        "Services overview shows at least the four services provided by the user.",
+        "“Call Now” triggers a tel: link to 03303132333 (or +03303132333 if that is chosen as canonical).",
+        "“Book Appointment” navigates to the Contact page and focuses or scrolls to the contact form."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create Home page with hero section using the static hero asset, render the provided intro paragraph verbatim, include a services overview (using centralized services list), and add primary CTAs: “Book Appointment” (navigate to Contact with a hash/id for focusing) and “Call Now” (tel: link). Use shadcn/ui primitives (e.g., Button/Card) for clean consistent UI—Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Home route to render the new Home page component and ensure navigation links point to it (no full reloads)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build the About page with provided story text (verbatim), a Mission section, and a Doctor Information placeholder section with labeled fields.",
+      "acceptanceCriteria": [
+        "About page displays the provided English About paragraph verbatim.",
+        "A “Mission” section is present and aligns with the provided About narrative (affordable, accessible, reliable care).",
+        "A “Doctor Information” section is present; if no doctor details exist, the UI clearly indicates placeholders and does not show fake names/credentials."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/About.tsx",
+          "operation": "create",
+          "description": "Create About page that renders the provided About paragraph verbatim, includes a Mission section aligned to the narrative, and a Doctor Information section with clearly labeled placeholder fields (Name, Qualifications, Experience) without fake data. Use shadcn/ui primitives for consistent section layout—Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the About route to render the new About page component and ensure header navigation includes it with active state."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build the Services page listing the four services with verbatim descriptions and a distinct icon per service.",
+      "acceptanceCriteria": [
+        "All four services are displayed with their English titles and descriptions verbatim.",
+        "Each service card/row includes a corresponding icon (either generated icons from static assets or a consistent icon set).",
+        "Services layout is readable on mobile and uses consistent spacing and hierarchy."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Services.tsx",
+          "operation": "create",
+          "description": "Create Services page that renders the four services and descriptions verbatim from centralized config and displays one distinct static generated icon per service. Use a responsive grid/list layout and shadcn/ui primitives (e.g., Card) for hierarchy—Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Services route to render the new Services page component and ensure header navigation includes it with active state."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build the Contact page with validated contact form (required name/phone/message; optional email), clinic contact details, and an embedded map iframe based on the canonical address string; submit via backend canister.",
+      "acceptanceCriteria": [
+        "Contact form validates required fields and shows a clear success and error state.",
+        "Submitting the form persists the submission via the backend canister (no external email/SMS integrations).",
+        "Contact details display phone number, email, and address (using the chosen canonical values).",
+        "Map section renders an iframe embed using the canonical address/location string (no API key required)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "create",
+          "description": "Create Contact page with (1) accessible form fields and client-side validation (name/phone/message required; email optional), (2) success/error UI states on submit, (3) contact details sourced from centralized config, and (4) an iframe map embed constructed from the canonical address/location string (no API key). On load, if navigated with the booking hash, scroll/focus the form. Use shadcn/ui form components (e.g., Input/Textarea/Label/Button/Alert) for consistent UI—Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useSubmitContactForm.ts",
+          "operation": "create",
+          "description": "Add a React Query mutation hook that calls the backend actor capability submitContactForm(name, phone, email|null, message), normalizes errors for UI display, and returns a clear success/error state to the Contact page."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Contact route to render the new Contact page component and ensure header navigation includes it with active state."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Centralize clinic config values (name, phone, email, canonical address/location string, services list) in one frontend module and use it across pages.",
+      "acceptanceCriteria": [
+        "Clinic name/phone/email/address/services are defined in one place and imported by pages.",
+        "Site displays the same email and address consistently on Home footer and Contact page.",
+        "No placeholder text like “[MungiaNaka]” remains in the final UI."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/config/clinicConfig.ts",
+          "operation": "create",
+          "description": "Create a single config module exporting clinic name, canonical phone, canonical email, canonical address/location string, and services list (titles + verbatim descriptions + icon asset paths). Resolve one canonical email and one canonical address for use across the UI."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Update Home page to import clinic configuration (phone + services list) and use canonical values consistently."
+        },
+        {
+          "path": "frontend/src/pages/Services.tsx",
+          "operation": "modify",
+          "description": "Update Services page to render services from the centralized config and bind each to its static generated icon path."
+        },
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "modify",
+          "description": "Update Contact page to import canonical phone/email/address from centralized config for contact details and map embed string."
+        },
+        {
+          "path": "frontend/src/components/layout/Footer.tsx",
+          "operation": "modify",
+          "description": "Update footer to import clinic config and display the canonical clinic name, phone, and canonical location text consistently on all pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add basic SEO and accessibility: per-route document titles, semantic headings, accessible form labels/error messaging, and descriptive alt text for images/icons.",
+      "acceptanceCriteria": [
+        "Each route sets an appropriate document/page title including “Zohan Health Care Clinic”.",
+        "All form inputs have associated labels and accessible error messaging.",
+        "Hero image and icons have non-empty, descriptive alt text."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Set document title for Home route (including “Zohan Health Care Clinic”), ensure semantic heading structure, and add descriptive alt text for the hero image and any icons shown in the services overview."
+        },
+        {
+          "path": "frontend/src/pages/About.tsx",
+          "operation": "modify",
+          "description": "Set document title for About route (including “Zohan Health Care Clinic”) and ensure semantic headings for Story/Mission/Doctor Information sections."
+        },
+        {
+          "path": "frontend/src/pages/Services.tsx",
+          "operation": "modify",
+          "description": "Set document title for Services route (including “Zohan Health Care Clinic”), ensure semantic headings, and provide descriptive alt text for each service icon."
+        },
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "modify",
+          "description": "Set document title for Contact route (including “Zohan Health Care Clinic”), ensure all inputs have associated labels, and implement accessible inline error messaging and status messaging for submit success/failure."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add generated static hero image and four service icons under the static assets directory and use them in the UI (no backend image serving).",
+      "acceptanceCriteria": [
+        "Hero image and service icon images are referenced as static assets from the frontend (not fetched from backend).",
+        "Home hero uses the hero image; Services page uses the 4 service icons.",
+        "Assets are optimized for web display (appropriate dimensions; no huge multi-megabyte files)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/clinic-hero.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated hero image asset at this exact path and reference it from the Home page as a static asset (not via backend)."
+        },
+        {
+          "path": "frontend/public/assets/generated/icon-general-checkup.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated service icon asset at this exact path and reference it from the Services page as a static asset (not via backend)."
+        },
+        {
+          "path": "frontend/public/assets/generated/icon-blood-pressure.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated service icon asset at this exact path and reference it from the Services page as a static asset (not via backend)."
+        },
+        {
+          "path": "frontend/public/assets/generated/icon-sugar-test.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated service icon asset at this exact path and reference it from the Services page as a static asset (not via backend)."
+        },
+        {
+          "path": "frontend/public/assets/generated/icon-pediatrics-adults.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated service icon asset at this exact path and reference it from the Services page as a static asset (not via backend)."
+        },
+        {
+          "path": "frontend/src/config/clinicConfig.ts",
+          "operation": "modify",
+          "description": "Reference the exact generated asset file paths (frontend/public/assets/generated/clinic-hero.dim_1600x900.png and the four icon *.dim_256x256.png files) from the centralized config so pages can use them consistently."
+        }
+      ]
+    }
+  ]
+}

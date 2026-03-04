@@ -1,0 +1,190 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-professional-clean-modern-mobile-friendly-clinic-website-for-zohan-health-care-clinic-using-a-consistent-blue-white-medical-visual-style-and-clean-sans-serif-typography-across-all-pages",
+      "featureTitle": "Create a professional, clean, modern, mobile-friendly clinic website for “Zohan Health Care Clinic” using a consistent Blue + White medical visual style and clean sans-serif typography across all pages.",
+      "files": [
+        "frontend/src/components/layout/SiteLayout.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-site-navigation-and-routing-for-four-pages-home-about-services-contact-include-a-header-navigation-with-active-state-and-a-footer-with-clinic-name-and-primary-contact-details",
+      "featureTitle": "Implement site navigation and routing for four pages: Home, About, Services, Contact. Include a header navigation (with active state) and a footer with clinic name and primary contact details.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/Footer.tsx",
+        "frontend/src/components/layout/HeaderNav.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-home-page-with-1-a-hero-section-featuring-a-clinic-medical-hero-image-2-the-provided-short-intro-text-in-english-3-a-services-overview-section-and-4-two-primary-cta-buttons-book-appointment-and-call-now",
+      "featureTitle": "Build the Home page with: (1) a hero section featuring a clinic/medical hero image, (2) the provided short intro text in English, (3) a services overview section, and (4) two primary CTA buttons: “Book Appointment” and “Call Now”.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-about-page-with-the-provided-clinic-story-text-in-english-plus-dedicated-sections-for-doctor-information-and-mission-if-doctor-details-are-not-provided-show-a-clean-placeholder-section-titled-doctor-information-with-clearly-labeled-fields-e-g-name-qualifications-experience-that-can-be-filled-later",
+      "featureTitle": "Build the About page with the provided clinic story text in English, plus dedicated sections for doctor information and mission. If doctor details are not provided, show a clean placeholder section titled “Doctor Information” with clearly labeled fields (e.g., Name, Qualifications, Experience) that can be filled later.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/About.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-services-page-listing-the-four-services-with-short-descriptions-in-english-exactly-as-provided-and-show-a-distinct-icon-for-each-service-general-checkup-blood-pressure-test-sugar-test-pediatrics-adults-care",
+      "featureTitle": "Build the Services page listing the four services with short descriptions (in English) exactly as provided, and show a distinct icon for each service (General Checkup, Blood Pressure Test, Sugar Test, Pediatrics & Adults Care).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Services.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-contact-page-with-1-a-contact-form-name-phone-message-required-email-optional-2-a-contact-details-section-that-shows-the-clinic-phone-email-and-address-and-3-an-embedded-map-section-based-on-the-final-canonical-address-location-string",
+      "featureTitle": "Build the Contact page with: (1) a contact form (name, phone, message required; email optional), (2) a contact details section that shows the clinic phone, email, and address, and (3) an embedded map section based on the final canonical address/location string.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Contact.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-centralize-clinic-configuration-values-clinic-name-phone-number-email-canonical-address-location-string-services-list-in-a-single-frontend-config-module-so-content-can-be-updated-without-editing-multiple-pages-resolve-and-use-one-canonical-email-and-one-canonical-address-across-the-ui",
+      "featureTitle": "Centralize clinic configuration values (clinic name, phone number, email, canonical address/location string, services list) in a single frontend config module so content can be updated without editing multiple pages. Resolve and use one canonical email and one canonical address across the UI.",
+      "files": [
+        "frontend/src/components/layout/Footer.tsx",
+        "frontend/src/config/clinicConfig.ts",
+        "frontend/src/pages/Contact.tsx",
+        "frontend/src/pages/Home.tsx",
+        "frontend/src/pages/Services.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-basic-seo-and-accessibility-essentials-page-titles-per-route-home-about-services-contact-semantic-headings-accessible-form-labels-and-appropriate-alt-text-for-the-hero-image-and-service-icons",
+      "featureTitle": "Add basic SEO and accessibility essentials: page titles per route (Home/About/Services/Contact), semantic headings, accessible form labels, and appropriate alt text for the hero image and service icons.",
+      "files": [
+        "frontend/src/pages/About.tsx",
+        "frontend/src/pages/Contact.tsx",
+        "frontend/src/pages/Home.tsx",
+        "frontend/src/pages/Services.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-generated-static-image-assets-hero-image-and-service-icons-to-the-frontend-and-use-them-in-the-ui-from-the-static-assets-directory-do-not-serve-images-through-the-backend",
+      "featureTitle": "Add generated static image assets (hero image and service icons) to the frontend and use them in the UI from the static assets directory (do not serve images through the backend).",
+      "files": [
+        "frontend/src/config/clinicConfig.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-15T12:40:30.740Z",
+  "summary": "Core 4-page routing, layout, and UI scaffolding were added, along with a contact form flow and backend endpoints. However, several key requirements/constraints are unmet or contradicted: the map embed uses an API key, backend storage is not stable across upgrades, navigation links in the footer can cause full page reloads, phone canonical value doesn’t match the required tel target, and the “verbatim provided text” requirements appear not satisfied based on the config content shown. The diff also introduces unrequested access-control/user-profile functionality and admin-gated submission retrieval.",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Navigation works without full page reloads.",
+      "reason": "Footer “Quick Links” use plain <a href> instead of client-side router Links, which typically triggers full page reloads.",
+      "evidence": [
+        "frontend/src/components/layout/Footer.tsx"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "requirement": "“Call Now” triggers a tel: link to 03303132333 (or +03303132333 if chosen as canonical).",
+      "reason": "The configured phone number is '+923303132333', so tel links will not match the required 03303132333 / +03303132333 acceptance criteria.",
+      "evidence": [
+        "frontend/src/config/clinicConfig.ts",
+        "frontend/src/components/layout/HeaderNav.tsx",
+        "frontend/src/pages/Home.tsx",
+        "frontend/src/pages/Services.tsx"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "requirement": "Home page hero displays the English intro paragraph exactly as provided (verbatim).",
+      "reason": "The hero subtitle text is defined in config as a custom paragraph; the diff does not show use of a separately provided, verbatim intro string.",
+      "evidence": [
+        "frontend/src/config/clinicConfig.ts",
+        "frontend/src/pages/Home.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "About page displays the provided English About paragraph verbatim.",
+      "reason": "About story text is set in config to a custom paragraph; the diff does not show a verbatim provided paragraph being used.",
+      "evidence": [
+        "frontend/src/config/clinicConfig.ts",
+        "frontend/src/pages/About.tsx"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "All four services are displayed with their English titles and descriptions verbatim (exactly as provided).",
+      "reason": "Service descriptions in config are generic phrases; the diff does not show the “exactly as provided” service descriptions being used.",
+      "evidence": [
+        "frontend/src/config/clinicConfig.ts",
+        "frontend/src/pages/Services.tsx"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Map section renders an iframe embed using the canonical address/location string (no API key required).",
+      "reason": "Contact page constructs a Google Maps Embed API URL with an explicit API key (key=...), which violates the “no API key required” constraint.",
+      "evidence": [
+        "frontend/src/pages/Contact.tsx"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Use stable storage so submissions persist across upgrades.",
+      "reason": "Backend stores submissions in a regular mutable variable (var submissions : [ContactFormSubmission] = []), with no stable variable and no preupgrade/postupgrade handling shown.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Provide a simple query endpoint to fetch submissions for future use (no admin UI required).",
+      "reason": "The only listing endpoint shown (getContactFormSubmissions) is admin-restricted via access control; the requirement did not call for admin-gating and requested a simple query endpoint for future use.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Access control system initialization, authorization mixin, admin checks, and secret-token initialization flow (_initializeAccessControlWithSecret usage).",
+      "reason": "Not requested by the BuildRequest; requirements only ask for storing and querying contact submissions, without introducing authz/admin-token mechanics.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/utils/urlParams.ts"
+      ]
+    },
+    {
+      "description": "User profile feature (UserProfile type and get/save profile endpoints).",
+      "reason": "Not requested anywhere in the BuildRequest.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Admin-only restriction on viewing contact submissions.",
+      "reason": "BuildRequest asked for a query endpoint for future use and explicitly stated no admin UI; it did not request admin-only access control for the query.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Caffeine.ai attribution/referral link in the footer.",
+      "reason": "Not requested as part of the site requirements and adds external promotional content.",
+      "evidence": [
+        "frontend/src/components/layout/Footer.tsx"
+      ]
+    },
+    {
+      "description": "Google Maps embed implemented using an API key.",
+      "reason": "Explicitly conflicts with the requirement that the embed should not require an API key.",
+      "evidence": [
+        "frontend/src/pages/Contact.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/layout/Footer.tsx",
+    "frontend/src/components/layout/HeaderNav.tsx",
+    "frontend/src/components/layout/SiteLayout.tsx",
+    "frontend/src/config/clinicConfig.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/About.tsx",
+    "frontend/src/pages/Contact.tsx",
+    "frontend/src/pages/Home.tsx",
+    "frontend/src/pages/Services.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "frontend/src/config/clinicConfig.ts": "Centralized configuration for clinic information including name, contact details, services list with icons, hero content, and about text.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for submitting contact forms and fetching contact submissions from the backend canister.",
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup for Home, About, Services, and Contact pages wrapped in SiteLayout.",
+  "frontend/src/components/layout/SiteLayout.tsx": "Layout wrapper component that provides consistent header navigation and footer across all pages.",
+  "frontend/src/components/layout/HeaderNav.tsx": "Responsive header navigation with mobile menu, active route highlighting, and call-to-action button.",
+  "frontend/src/components/layout/Footer.tsx": "Footer component displaying clinic information, contact details, quick links, and attribution with caffeine.ai link.",
+  "frontend/src/pages/Home.tsx": "Home page with hero section, clinic features, services overview, and call-to-action sections with booking and call buttons.",
+  "frontend/src/pages/About.tsx": "About page displaying clinic story, mission statement, core values, and doctor information placeholder section.",
+  "frontend/src/pages/Services.tsx": "Services page listing all four medical services with icons, descriptions, and appointment booking call-to-action.",
+  "frontend/src/pages/Contact.tsx": "Contact page with validated form, contact information cards, and embedded Google Maps location iframe.",
+  "frontend/src/index.css": "Global styles with medical blue/white OKLCH color system, custom medical-blue utilities, and clean sans-serif typography.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with medical-blue color tokens and custom design system settings."
+}

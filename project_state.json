@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a professional, clean, modern, mobile-friendly website for Zohan Health Care Clinic (Khairpur, Sindh) with Blue/White medical styling, sans-serif typography, bilingual (English/Urdu) content, and pages: Home, About, Services, Contact including CTAs, service icons, hero image, and contact form/map.",
+  "architectural_notes": [
+    "Site includes bilingual (English/Urdu) content presentation (language toggle or clearly separated sections).",
+    "Design system: Blue/White medical theme with clean sans-serif typography and mobile-first responsive layout."
+  ],
+  "known_issues": [
+    "Contact email inconsistency: user provided UsamaArain@gmail.com but sample copy shows info@zohanclinic.com—needs confirmation.",
+    "Address formatting inconsistency: 'Mungia Naka, kotlaloo, Khairpur, Sindh' vs 'Mungia Naka, Near Abdul hakeem mungio' vs '[MungiaNaka]' placeholder—needs final canonical address for map."
+  ],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Clinic hero photo/illustration with a clean modern medical look, blue/white palette (clinic-hero.dim_1600x900.png)\n- Minimal outline icon for General Checkup (icon-general-checkup.dim_256x256.png)\n- Minimal outline icon for Blood Pressure Test (icon-blood-pressure.dim_256x256.png)\n- Minimal outline icon for Sugar Test (icon-sugar-test.dim_256x256.png)\n- Minimal outline icon for Pediatrics & Adults Care (icon-pediatrics-adults.dim_256x256.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-professional-clean-modern-mobile-friendly-clinic-website-for-zohan-health-care-clinic-using-a-consistent-blue-white-medical-visual-style-and-clean-sans-serif-typography-across-all-pages",
+      "title": "Create a professional, clean, modern, mobile-friendly clinic website for “Zohan Health Care Clinic” using a consistent Blue + White medical visual style and clean sans-serif typography across all pages.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-site-navigation-and-routing-for-four-pages-home-about-services-contact-include-a-header-navigation-with-active-state-and-a-footer-with-clinic-name-and-primary-contact-details",
+      "title": "Implement site navigation and routing for four pages: Home, About, Services, Contact. Include a header navigation (with active state) and a footer with clinic name and primary contact details.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-home-page-with-1-a-hero-section-featuring-a-clinic-medical-hero-image-2-the-provided-short-intro-text-in-english-3-a-services-overview-section-and-4-two-primary-cta-buttons-book-appointment-and-call-now",
+      "title": "Build the Home page with: (1) a hero section featuring a clinic/medical hero image, (2) the provided short intro text in English, (3) a services overview section, and (4) two primary CTA buttons: “Book Appointment” and “Call Now”.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-about-page-with-the-provided-clinic-story-text-in-english-plus-dedicated-sections-for-doctor-information-and-mission-if-doctor-details-are-not-provided-show-a-clean-placeholder-section-titled-doctor-information-with-clearly-labeled-fields-e-g-name-qualifications-experience-that-can-be-filled-later",
+      "title": "Build the About page with the provided clinic story text in English, plus dedicated sections for doctor information and mission. If doctor details are not provided, show a clean placeholder section titled “Doctor Information” with clearly labeled fields (e.g., Name, Qualifications, Experience) that can be filled later.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-services-page-listing-the-four-services-with-short-descriptions-in-english-exactly-as-provided-and-show-a-distinct-icon-for-each-service-general-checkup-blood-pressure-test-sugar-test-pediatrics-adults-care",
+      "title": "Build the Services page listing the four services with short descriptions (in English) exactly as provided, and show a distinct icon for each service (General Checkup, Blood Pressure Test, Sugar Test, Pediatrics & Adults Care).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-contact-page-with-1-a-contact-form-name-phone-message-required-email-optional-2-a-contact-details-section-that-shows-the-clinic-phone-email-and-address-and-3-an-embedded-map-section-based-on-the-final-canonical-address-location-string",
+      "title": "Build the Contact page with: (1) a contact form (name, phone, message required; email optional), (2) a contact details section that shows the clinic phone, email, and address, and (3) an embedded map section based on the final canonical address/location string.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-centralize-clinic-configuration-values-clinic-name-phone-number-email-canonical-address-location-string-services-list-in-a-single-frontend-config-module-so-content-can-be-updated-without-editing-multiple-pages-resolve-and-use-one-canonical-email-and-one-canonical-address-across-the-ui",
+      "title": "Centralize clinic configuration values (clinic name, phone number, email, canonical address/location string, services list) in a single frontend config module so content can be updated without editing multiple pages. Resolve and use one canonical email and one canonical address across the UI.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-basic-seo-and-accessibility-essentials-page-titles-per-route-home-about-services-contact-semantic-headings-accessible-form-labels-and-appropriate-alt-text-for-the-hero-image-and-service-icons",
+      "title": "Add basic SEO and accessibility essentials: page titles per route (Home/About/Services/Contact), semantic headings, accessible form labels, and appropriate alt text for the hero image and service icons.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-image-assets-hero-image-and-service-icons-to-the-frontend-and-use-them-in-the-ui-from-the-static-assets-directory-do-not-serve-images-through-the-backend",
+      "title": "Add generated static image assets (hero image and service icons) to the frontend and use them in the UI from the static assets directory (do not serve images through the backend).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create 4-page clinic website (Home, About, Services, Contact) for Zohan Health Care Clinic with provided content",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Apply professional clean modern design style (Blue/White, sans-serif) with responsive mobile-friendly layout",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Include bilingual (English/Urdu) content sections for Home/About/Services/Contact",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Home page: hero image + short intro + services overview + CTA buttons (Book Appointment, Call Now)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Services page: list services with short descriptions and icons for each service",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Contact page: contact form + phone/email/address + embedded map/location section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Backend: Add canister endpoints to accept and store contact form submissions (timestamp, name, phone, optional email, message). Use stable storage so submissions persist across upgrades. Provide a simple query endpoint to fetch submissions for future use (no admin UI required).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Zohan Health Care Clinic",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

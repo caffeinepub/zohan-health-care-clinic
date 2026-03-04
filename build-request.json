@@ -1,0 +1,227 @@
+{
+  "kind": "build_request",
+  "title": "Zohan Health Care Clinic 4-page responsive website with contact form, CTAs, hero image, and service icons",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a professional, clean, modern, mobile-friendly clinic website for “Zohan Health Care Clinic” using a consistent Blue + White medical visual style and clean sans-serif typography across all pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Design style:\nProfessional, clean, modern\nColors: Blue + White (medical look)\nFonts: Sans Serif, clean\nMobile friendly layout"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages share a consistent Blue/White theme, spacing, and typography.",
+        "Layout is responsive and usable on mobile, tablet, and desktop screen sizes.",
+        "No blue/purple gradient theme is introduced; keep the look medical and clean."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement site navigation and routing for four pages: Home, About, Services, Contact. Include a header navigation (with active state) and a footer with clinic name and primary contact details.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Pages to create:\nHome\nAbout\nServices\nContact"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can navigate to Home, About, Services, and Contact via a top navigation on all pages.",
+        "Footer is present on all pages and includes clinic name plus at least phone and location text.",
+        "Navigation works without full page reloads."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build the Home page with: (1) a hero section featuring a clinic/medical hero image, (2) the provided short intro text in English, (3) a services overview section, and (4) two primary CTA buttons: “Book Appointment” and “Call Now”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Home: Clinic ka hero image + short intro + services overview\nButtons: “Book Appointment”, “Call Now”",
+          "Welcome to Zohan Health Care Clinic, your trusted healthcare provider for children and adults. We offer professional, affordable, and friendly medical services in a clean and modern environment. Your health is our priority."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home page hero displays the generated hero image and the English intro paragraph exactly as provided (verbatim).",
+        "Services overview shows at least the four services provided by the user.",
+        "“Call Now” triggers a tel: link to 03303132333 (or +03303132333 if that is chosen as canonical).",
+        "“Book Appointment” navigates to the Contact page and focuses or scrolls to the contact form."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build the About page with the provided clinic story text in English, plus dedicated sections for doctor information and mission. If doctor details are not provided, show a clean placeholder section titled “Doctor Information” with clearly labeled fields (e.g., Name, Qualifications, Experience) that can be filled later.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "About: Clinic story + doctor info + mission",
+          "Zohan Health Care Clinic is dedicated to providing expert medical care to our community. Our team of qualified physicians specializes in general checkups, preventive care, and treatment for all age groups. We aim to make healthcare affordable, accessible, and reliable for everyone."
+        ]
+      },
+      "acceptanceCriteria": [
+        "About page displays the provided English About paragraph verbatim.",
+        "A “Mission” section is present and aligns with the provided About narrative (affordable, accessible, reliable care).",
+        "A “Doctor Information” section is present; if no doctor details exist, the UI clearly indicates placeholders and does not show fake names/credentials."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Build the Services page listing the four services with short descriptions (in English) exactly as provided, and show a distinct icon for each service (General Checkup, Blood Pressure Test, Sugar Test, Pediatrics & Adults Care).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Services: List of services + short descriptions\nIcons for each service",
+          "General Checkup: Comprehensive health evaluation for all ages.\nBlood Pressure Test: Accurate monitoring and advice.\nSugar Test: Quick and reliable diabetes screening.\nPediatrics & Adults Care: Specialized care for children and adults."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All four services are displayed with their English titles and descriptions verbatim.",
+        "Each service card/row includes a corresponding icon (either generated icons from static assets or a consistent icon set).",
+        "Services layout is readable on mobile and uses consistent spacing and hierarchy."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build the Contact page with: (1) a contact form (name, phone, message required; email optional), (2) a contact details section that shows the clinic phone, email, and address, and (3) an embedded map section based on the final canonical address/location string.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Contact: Form + phone + map",
+          "Contact info:\nPhone number ; 03303132333\nAddress ::;Mungia Naka , Near Abdul hakeem mungio\nEmail (UsamaArain@gmail.com)",
+          "Location / Mungia Naka, kotlaloo, Khairpur, Sindh."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact form validates required fields and shows a clear success and error state.",
+        "Submitting the form persists the submission via the backend canister (no external email/SMS integrations).",
+        "Contact details display phone number, email, and address (using the chosen canonical values).",
+        "Map section renders an iframe embed using the canonical address/location string (no API key required)."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Backend: Add canister endpoints to accept and store contact form submissions (timestamp, name, phone, optional email, message). Use stable storage so submissions persist across upgrades. Provide a simple query endpoint to fetch submissions for future use (no admin UI required).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Contact: Form + phone + map"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A backend update method exists to create/store a contact submission.",
+        "Stored submissions persist across canister upgrades (stable storage).",
+        "A backend query method exists to list submissions (may be limited/paginated if needed)."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Centralize clinic configuration values (clinic name, phone number, email, canonical address/location string, services list) in a single frontend config module so content can be updated without editing multiple pages. Resolve and use one canonical email and one canonical address across the UI.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Contact info:\nPhone number ; 03303132333\nAddress ::;Mungia Naka , Near Abdul hakeem mungio\nEmail (UsamaArain@gmail.com)",
+          "Visit us for friendly and professional healthcare services.\nEmail: info@zohanclinic.com\nAddress: [MungiaNaka]"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clinic name/phone/email/address/services are defined in one place and imported by pages.",
+        "Site displays the same email and address consistently on Home footer and Contact page.",
+        "No placeholder text like “[MungiaNaka]” remains in the final UI."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Add basic SEO and accessibility essentials: page titles per route (Home/About/Services/Contact), semantic headings, accessible form labels, and appropriate alt text for the hero image and service icons.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Professional, clean, modern"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each route sets an appropriate document/page title including “Zohan Health Care Clinic”.",
+        "All form inputs have associated labels and accessible error messaging.",
+        "Hero image and icons have non-empty, descriptive alt text."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Add generated static image assets (hero image and service icons) to the frontend and use them in the UI from the static assets directory (do not serve images through the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Hero image (clinic photo or stock medical image)\nIcons for each service"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero image and service icon images are referenced as static assets from the frontend (not fetched from backend).",
+        "Home hero uses the hero image; Services page uses the 4 service icons.",
+        "Assets are optimized for web display (appropriate dimensions; no huge multi-megabyte files)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend files under immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Backend must remain a single Motoko actor with all logic in backend/main.mo; add migration only if upgrading existing state becomes necessary.",
+    "Use English for all user-facing text implemented in the app (even if Urdu text was provided).",
+    "Do not integrate third-party auth providers, external databases, email/SMS providers, or real-time WebSockets; Contact form must not rely on external email delivery."
+  ],
+  "nonGoals": [
+    "Online appointment scheduling with calendar/time-slot management.",
+    "Payment processing.",
+    "Admin dashboard/UI for viewing contact submissions.",
+    "Multilingual (English/Urdu) toggle or full Urdu site content (English-only implementation for now)."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Clinic hero photo/illustration with a clean modern medical look, blue/white palette (clinic-hero.dim_1600x900.png)",
+      "Minimal outline icon for General Checkup (icon-general-checkup.dim_256x256.png)",
+      "Minimal outline icon for Blood Pressure Test (icon-blood-pressure.dim_256x256.png)",
+      "Minimal outline icon for Sugar Test (icon-sugar-test.dim_256x256.png)",
+      "Minimal outline icon for Pediatrics & Adults Care (icon-pediatrics-adults.dim_256x256.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}
